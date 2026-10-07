@@ -1,0 +1,6 @@
+{
+  "workbench": "0.1.0",
+  "pairs": [
+    { "engine": "@anasabubakar/raillab-engine", "version": "0.1.0", "sessionVersion": "1", "scenarioVersion": "1", "status": "tested" }
+  ]
+}
