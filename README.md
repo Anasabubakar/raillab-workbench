@@ -60,3 +60,9 @@ pnpm run typecheck && pnpm test && pnpm run build     # 21 tests (jsdom)
 Engineering complete for v0.1; verified in a real browser at desktop and 375 px widths (a width-containment bug was found and fixed there). Pushed to GitHub with CI green; not published to npm. No wallet or anchor maintainer has reviewed the scenarios or rules.
 
 MIT licensed.
+
+## Contributors
+
+<a href="https://github.com/Anasabubakar/raillab-workbench/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Anasabubakar/raillab-workbench" alt="Contributors to raillab-workbench" />
+</a>
