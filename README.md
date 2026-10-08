@@ -4,7 +4,7 @@ An interactive incident playground for [RailLab](https://github.com/Anasabubakar
 
 Nothing here is scripted. The scenario server and the reference clients are the real `raillab-engine` code running in your browser; edit the scenario JSON and the outcomes change because the code actually ran again. Everything the anchor does is **simulated**: no real bank, anchor, identifier or payment, and no network access.
 
-Hosted demo: not deployed yet (see Status). Run it locally below.
+Hosted demo: https://raillab-workbench-anasamasama.vercel.app
 
 ## Run
 
