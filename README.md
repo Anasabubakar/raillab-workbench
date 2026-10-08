@@ -57,6 +57,6 @@ pnpm run typecheck && pnpm test && pnpm run build     # 21 tests (jsdom)
 
 ## Status
 
-Engineering complete for v0.1; verified in a real browser at desktop and 375 px widths (a width-containment bug was found and fixed there). Not done: hosted deployment (Vercel CLI not installed in the build environment, public publishing not authorized), GitHub publishing and CI run. No wallet or anchor maintainer has reviewed the scenarios or rules.
+Engineering complete for v0.1; verified in a real browser at desktop and 375 px widths (a width-containment bug was found and fixed there). Pushed to GitHub with CI green; not published to npm. No wallet or anchor maintainer has reviewed the scenarios or rules.
 
 MIT licensed.
