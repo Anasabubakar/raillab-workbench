@@ -69,11 +69,11 @@ describe("engine pairing", () => {
     const tgz = readdirSync("vendor").find((f) => f.endsWith(".tgz"))!;
     expect(PAIRING.artifact).toBe(tgz);
     expect(PAIRING.sha256).toBe(createHash("sha256").update(readFileSync(`vendor/${tgz}`)).digest("hex"));
-    expect(JSON.parse(readFileSync("package.json", "utf8")).dependencies["@anasabubakar/raillab-engine"]).toBe(`file:vendor/${tgz}`);
+    expect(JSON.parse(readFileSync("package.json", "utf8")).dependencies["@anas.abubakar/raillab-engine"]).toBe(`file:vendor/${tgz}`);
   });
 
   it("the installed engine is the stamped version", () => {
-    const installed = JSON.parse(readFileSync("node_modules/@anasabubakar/raillab-engine/package.json", "utf8"));
+    const installed = JSON.parse(readFileSync("node_modules/@anas.abubakar/raillab-engine/package.json", "utf8"));
     expect(installed.version).toBe(PAIRING.version);
   });
 });

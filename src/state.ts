@@ -12,14 +12,14 @@ import {
   type Consumer,
   type Scenario,
   type Session,
-} from "@anasabubakar/raillab-engine";
-import baseline from "@anasabubakar/raillab-engine/scenarios/baseline-withdrawal.json";
-import delayed from "@anasabubakar/raillab-engine/scenarios/delayed-payout.json";
-import everything from "@anasabubakar/raillab-engine/scenarios/everything-at-once.json";
-import mismatched from "@anasabubakar/raillab-engine/scenarios/mismatched-reference.json";
-import reordered from "@anasabubakar/raillab-engine/scenarios/reordered-and-repeated.json";
-import stale from "@anasabubakar/raillab-engine/scenarios/stale-authentication.json";
-import transient from "@anasabubakar/raillab-engine/scenarios/transient-outage.json";
+} from "@anas.abubakar/raillab-engine";
+import baseline from "@anas.abubakar/raillab-engine/scenarios/baseline-withdrawal.json";
+import delayed from "@anas.abubakar/raillab-engine/scenarios/delayed-payout.json";
+import everything from "@anas.abubakar/raillab-engine/scenarios/everything-at-once.json";
+import mismatched from "@anas.abubakar/raillab-engine/scenarios/mismatched-reference.json";
+import reordered from "@anas.abubakar/raillab-engine/scenarios/reordered-and-repeated.json";
+import stale from "@anas.abubakar/raillab-engine/scenarios/stale-authentication.json";
+import transient from "@anas.abubakar/raillab-engine/scenarios/transient-outage.json";
 import pairing from "../vendor/pairing.json";
 
 export const PAIRING = pairing;

@@ -1,4 +1,4 @@
-import type { AssertionResult, Session, TimelineEvent } from "@anasabubakar/raillab-engine";
+import type { AssertionResult, Session, TimelineEvent } from "@anas.abubakar/raillab-engine";
 import { h } from "./dom.ts";
 import { lanes } from "./lanes.ts";
 

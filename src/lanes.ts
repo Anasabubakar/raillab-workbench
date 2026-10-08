@@ -1,4 +1,4 @@
-import type { RequestEvent, Session, TransitionEvent } from "@anasabubakar/raillab-engine";
+import type { RequestEvent, Session, TransitionEvent } from "@anas.abubakar/raillab-engine";
 
 const NS = "http://www.w3.org/2000/svg";
 function s<K extends keyof SVGElementTagNameMap>(tag: K, attrs: Record<string, string | number>, text?: string): SVGElementTagNameMap[K] {

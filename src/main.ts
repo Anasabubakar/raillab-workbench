@@ -1,6 +1,6 @@
 import "./style.css";
 import { z } from "zod";
-import { parseSession, type Session } from "@anasabubakar/raillab-engine";
+import { parseSession, type Session } from "@anas.abubakar/raillab-engine";
 import { h } from "./dom.ts";
 import { CLIENTS, PAIRING, SCENARIOS, runConfig, sessionProblem } from "./state.ts";
 import { renderSession } from "./view.ts";
