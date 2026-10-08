@@ -1,7 +1,7 @@
 # Changelog
 
 ## 0.1.1
-- Saved sessions are now verified by recomputing their assertions, verdict and timeline fingerprint; inconsistent files are rejected. Pairing unchanged (still tested with the 0.1.0 core snapshot it vendors).
+- Saved sessions are now verified by recomputing their assertions, verdict and timeline fingerprint; inconsistent files are rejected. Re-paired with the published 0.1.1 release of its core (`compat.json` and the vendor stamp record the version and commit). Recorded real-run samples keep the version that recorded them.
 
 ## 0.1.0 (unreleased)
 - Workbench running the real raillab-engine in the browser: scenarios, clients (corrected, defective, per-rule mutants), seed, side-by-side comparison.
