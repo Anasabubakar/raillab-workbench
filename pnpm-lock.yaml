@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@anasabubakar/raillab-engine':
-        specifier: file:vendor/anasabubakar-raillab-engine-0.1.0.tgz
-        version: file:vendor/anasabubakar-raillab-engine-0.1.0.tgz
+      '@anas.abubakar/raillab-engine':
+        specifier: file:vendor/anas.abubakar-raillab-engine-0.1.1.tgz
+        version: file:vendor/anas.abubakar-raillab-engine-0.1.1.tgz
       zod:
         specifier: 4.6.5
         version: 4.6.5
@@ -33,9 +33,9 @@ importers:
 
 packages:
 
-  '@anasabubakar/raillab-engine@file:vendor/anasabubakar-raillab-engine-0.1.0.tgz':
-    resolution: {integrity: sha512-qyyACwdA/KCLHm5yDemafhMtnlsw6/0aSPf7qIgWBQvn8R8sQqFL1KvMZXYbe7wKPYfOc1ZLaH7uuGLRcIRhLw==, tarball: file:vendor/anasabubakar-raillab-engine-0.1.0.tgz}
-    version: 0.1.0
+  '@anas.abubakar/raillab-engine@file:vendor/anas.abubakar-raillab-engine-0.1.1.tgz':
+    resolution: {integrity: sha512-nxsFkaxeuh6SUfhN+dDIkxT/SZf5sIJ3Oh+7Pzh+yXdq/hcQcHXYbLuMWdSw9U082xxSX25FTszMdwRyp66Fjw==, tarball: file:vendor/anas.abubakar-raillab-engine-0.1.1.tgz}
+    version: 0.1.1
     engines: {node: '>=22'}
     hasBin: true
 
@@ -715,7 +715,7 @@ packages:
 
 snapshots:
 
-  '@anasabubakar/raillab-engine@file:vendor/anasabubakar-raillab-engine-0.1.0.tgz':
+  '@anas.abubakar/raillab-engine@file:vendor/anas.abubakar-raillab-engine-0.1.1.tgz':
     dependencies:
       commander: 15.0.0
       zod: 4.6.5

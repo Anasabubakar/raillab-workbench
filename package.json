@@ -19,7 +19,7 @@
     "stamp": "node scripts/stamp-engine.mjs"
   },
   "dependencies": {
-    "@anasabubakar/raillab-engine": "file:vendor/anasabubakar-raillab-engine-0.1.0.tgz",
+    "@anas.abubakar/raillab-engine": "file:vendor/anas.abubakar-raillab-engine-0.1.1.tgz",
     "zod": "4.6.5"
   },
   "devDependencies": {

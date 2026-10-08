@@ -1,8 +1,10 @@
 {
-  "package": "@anasabubakar/raillab-engine",
-  "version": "0.1.0",
-  "artifact": "anasabubakar-raillab-engine-0.1.0.tgz",
-  "sha256": "de8a9c999103340d8b95d0a740fdf539ca152aad0162d9eb080147bbb882b11b",
+  "package": "@anas.abubakar/raillab-engine",
+  "version": "0.1.1",
+  "artifact": "anas.abubakar-raillab-engine-0.1.1.tgz",
+  "sha256": "41138a9343c829d28223e8aa290f38f1f57014acd24393415ee4b29086b85255",
   "sessionVersion": "1",
-  "scenarioVersion": "1"
+  "scenarioVersion": "1",
+  "commit": "9fefb742d345b2983df4487046bff43755f43f86",
+  "gitTag": "v0.1.1"
 }
