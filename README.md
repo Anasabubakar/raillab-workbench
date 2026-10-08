@@ -1,8 +1,13 @@
+<p align="center"><img src="docs/assets/banner.svg" alt="raillab-workbench" width="100%"></p>
+
 # raillab-workbench
 
-**Documentation:** https://stellar-developer-tools.gitbook.io/raillab-workbench/
+[![CI](https://github.com/Rail-L-b/raillab-workbench/actions/workflows/ci.yml/badge.svg)](https://github.com/Rail-L-b/raillab-workbench/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Release](https://img.shields.io/github/v/release/Rail-L-b/raillab-workbench)](https://github.com/Rail-L-b/raillab-workbench/releases)
 
-An interactive incident playground for [RailLab](https://github.com/Anasabubakar/raillab-engine): pick a SEP-24 withdrawal scenario, choose a wallet client, press Run, and see exactly where the client breaks, with every rule labelled as a **SEP-24 requirement** or an **application policy**.
+[Documentation](https://stellar-developer-tools.gitbook.io/raillab-workbench/) · [Live demo](https://raillab-workbench-anasamasama.vercel.app) · [Core repository](https://github.com/Rail-L-b/raillab-engine) · [Issues](https://github.com/Rail-L-b/raillab-workbench/issues) · [Discussions](https://github.com/Rail-L-b/raillab-workbench/discussions)
+
+
+An interactive incident playground for [RailLab](https://github.com/Rail-L-b/raillab-engine): pick a SEP-24 withdrawal scenario, choose a wallet client, press Run, and see exactly where the client breaks, with every rule labelled as a **SEP-24 requirement** or an **application policy**.
 
 Nothing here is scripted. The scenario server and the reference clients are the real `raillab-engine` code running in your browser; edit the scenario JSON and the outcomes change because the code actually ran again. Everything the anchor does is **simulated**: no real bank, anchor, identifier or payment, and no network access.
 
@@ -13,7 +18,7 @@ Hosted demo: https://raillab-workbench-anasamasama.vercel.app
 Node 22 or newer and pnpm.
 
 ```bash
-git clone https://github.com/Anasabubakar/raillab-workbench.git
+git clone https://github.com/Rail-L-b/raillab-workbench.git
 cd raillab-workbench
 pnpm install --frozen-lockfile
 pnpm dev            # or: pnpm build && pnpm preview
@@ -33,7 +38,7 @@ Evidence from a real browser (2026-10-07): [defective vs corrected](docs/evidenc
 
 ## To test your own client
 
-The workbench runs reference clients. To test your own wallet code, use the engine's CLI (`raillab test <scenario> -- <your command>`); see the engine's [consumer contract](https://github.com/Anasabubakar/raillab-engine/blob/main/docs/CONSUMER-CONTRACT.md). Running user-supplied code is deliberately not offered in the hosted page.
+The workbench runs reference clients. To test your own wallet code, use the engine's CLI (`raillab test <scenario> -- <your command>`); see the engine's [consumer contract](https://github.com/Rail-L-b/raillab-engine/blob/main/docs/CONSUMER-CONTRACT.md). Running user-supplied code is deliberately not offered in the hosted page.
 
 ## Safety
 
@@ -63,8 +68,42 @@ Engineering complete for v0.1; verified in a real browser at desktop and 375 px 
 
 MIT licensed.
 
+## Repository layout
+
+- `docs/`: decision records (ADRs), evidence and assets
+- `gitbook/`: source of the GitBook documentation
+- `scripts/`: build, generation and recording scripts
+- `src/`: source
+- `test/`: tests
+- `vendor/`: pinned artifacts from the paired core repository
+
+## Documentation
+
+The full documentation is at https://stellar-developer-tools.gitbook.io/raillab-workbench/. It is built from the `gitbook/` folder of this repository and synced from `main`, so a fix to a page is a pull request here.
+
+## Contributing
+
+Open issues are scoped so one person can finish one in a single cycle, and each lists acceptance criteria. Read [CONTRIBUTING.md](CONTRIBUTING.md), pick an issue from the [issue list](https://github.com/Rail-L-b/raillab-workbench/issues), and say you are taking it before you start. Security reports go through [SECURITY.md](SECURITY.md), not public issues.
+
+## Maintainers
+
+| Maintainer | Role | GitHub |
+|---|---|---|
+| Anas Abubakar | Lead maintainer | [@Anasabubakar](https://github.com/Anasabubakar) |
+| Abdulbasit Fazazi | Co-maintainer | [@fazaziishola-coder](https://github.com/fazaziishola-coder) |
+
+## Community
+
+Questions and design discussion go in [GitHub Discussions](https://github.com/Rail-L-b/raillab-workbench/discussions). Bugs and scoped work go in [Issues](https://github.com/Rail-L-b/raillab-workbench/issues).
+
+## License
+
+MIT. See [LICENSE](LICENSE).
+
 ## Contributors
 
-<a href="https://github.com/Anasabubakar/raillab-workbench/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Anasabubakar/raillab-workbench" alt="Contributors to raillab-workbench" />
+Thanks to all the contributors who have made this project possible.
+
+<a href="https://github.com/Rail-L-b/raillab-workbench/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Rail-L-b/raillab-workbench" alt="Contributors to raillab-workbench" />
 </a>
