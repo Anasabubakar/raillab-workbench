@@ -2,7 +2,7 @@ import "./style.css";
 import { z } from "zod";
 import { parseSession, type Session } from "@anasabubakar/raillab-engine";
 import { h } from "./dom.ts";
-import { CLIENTS, PAIRING, SCENARIOS, runConfig } from "./state.ts";
+import { CLIENTS, PAIRING, SCENARIOS, runConfig, sessionProblem } from "./state.ts";
 import { renderSession } from "./view.ts";
 
 // Zod's JIT compiles validators with new Function, which a strict CSP forbids. Turn it off.
@@ -92,6 +92,8 @@ function render(): void {
     try {
       const parsed = parseSession(JSON.parse(await f.text()));
       if (!parsed.ok) throw new Error(parsed.error);
+      const problem = sessionProblem(parsed.session);
+      if (problem) throw new Error(problem);
       state.sessions = [{ title: `Opened: ${f.name}`, session: parsed.session }];
       state.error = null;
     } catch (e) {

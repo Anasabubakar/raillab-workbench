@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { CLIENTS, PAIRING, SCENARIOS, runConfig } from "../src/state.ts";
+import { CLIENTS, PAIRING, SCENARIOS, runConfig, sessionProblem } from "../src/state.ts";
 
 const scenario = (name: string) => SCENARIOS.find((s) => s.name === name)!.json;
 const outcome = (r: Awaited<ReturnType<typeof runConfig>>, id: string) => (r.ok ? r.session.result.assertions.find((a) => a.id === id)!.outcome : "error");
@@ -82,5 +82,31 @@ describe("pairing file", () => {
   it("compat.json lists exactly the stamped engine as tested", () => {
     const compat = JSON.parse(readFileSync("compat.json", "utf8"));
     expect(compat.pairs).toContainEqual({ engine: PAIRING.package, version: PAIRING.version, sessionVersion: PAIRING.sessionVersion, scenarioVersion: PAIRING.scenarioVersion, status: "tested" });
+  });
+});
+
+describe("saved session consistency", () => {
+  it("accepts every session the engine produces and rejects a hidden failure, a forged assertion and a changed timeline", async () => {
+    for (const s of SCENARIOS) {
+      for (const c of ["corrected", "defective"]) {
+        const r = await runConfig({ scenarioText: s.json, seed: 3, clientId: c });
+        if (!r.ok) throw new Error(r.error);
+        expect(sessionProblem(JSON.parse(JSON.stringify(r.session))), `${s.name}/${c}`).toBeNull();
+      }
+    }
+    const bad = await runConfig({ scenarioText: scenario("baseline-withdrawal"), seed: 1, clientId: "defective" });
+    if (!bad.ok) throw new Error(bad.error);
+    const base = JSON.parse(JSON.stringify(bad.session));
+    expect(base.result.verdict).toBe("fail");
+    const hidden = structuredClone(base);
+    hidden.result.verdict = "pass";
+    expect(sessionProblem(hidden)).toMatch(/verdict/);
+    const forged = structuredClone(base);
+    forged.result.assertions.forEach((a: { outcome: string }) => (a.outcome = "pass"));
+    forged.result.verdict = "pass";
+    expect(sessionProblem(forged)).toMatch(/assertion results/);
+    const edited = structuredClone(base);
+    edited.timeline = edited.timeline.filter((e: { kind: string }, i: number) => !(e.kind === "consumer" && i % 3 === 0));
+    expect(sessionProblem(edited)).not.toBeNull();
   });
 });

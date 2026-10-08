@@ -1,4 +1,9 @@
 import {
+  AnchorModel,
+  VirtualClock,
+  digest,
+  evaluate,
+  verdictOf,
   MUTANTS,
   correctedConsumer,
   defectiveConsumer,
@@ -55,4 +60,18 @@ export async function runConfig(opts: { scenarioText: string; seed: number; clie
   if (!client) return { ok: false, error: `Unknown client ${opts.clientId}.` };
   const session = await runSession({ scenario: parsed.scenario, seed: opts.seed, consumer: client.consumer, consumerName: client.label });
   return { ok: true, session, scenario: parsed.scenario };
+}
+
+/**
+ * A saved session carries its own verdict, assertion results and timeline fingerprint. Recompute all three from the
+ * scenario, seed and timeline it contains (the anchor model is deterministic) and refuse a file that disagrees.
+ */
+export function sessionProblem(session: Session): string | null {
+  const clock = new VirtualClock();
+  const anchor = new AnchorModel(session.scenario, session.seed, (ms) => clock.iso(ms));
+  const results = evaluate({ scenario: session.scenario, anchor, timeline: session.timeline });
+  if (JSON.stringify(results) !== JSON.stringify(session.result.assertions)) return "Inconsistent session: its assertion results do not follow from its timeline.";
+  if (verdictOf(results) !== session.result.verdict) return `Inconsistent session: its verdict is "${session.result.verdict}" but its assertions give "${verdictOf(results)}".`;
+  if (digest(session.timeline) !== session.timelineDigest) return "Inconsistent session: its timeline fingerprint does not match its timeline.";
+  return null;
 }
